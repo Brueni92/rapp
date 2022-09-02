@@ -29,28 +29,7 @@ function App() {
   const [searchCountry, setsearchCountry] = useState([]);
   const [filterCountry, setfilterCountry] = useState([]);
   const fetchCountryData = async () => {
-    //const response = await fetch(url);
-    //const countries = await response.json();
-    const countries = [
-      {
-      "numericCode": "CH",
-      "flag": "www.rebschule-meier.ch/sites/default/files/2018-09/amigne.jpg",
-      "name": "CH",
-      "population": 100,
-      "region": "Europe",
-      "capital": "CH",
-      "alpha3Code": "CH"
-    },
-    {
-      "numericCode": "CH",
-      "flag": "CH",
-      "name": "CH",
-      "population": 100,
-      "region": "CH",
-      "capital": "CH",
-      "alpha3Code": "CH"
-    },
-  ]
+    const countries = require('./data/sorten.json')
     setCountries(countries);
     setsearchCountry(countries);
     setfilterCountry(countries);

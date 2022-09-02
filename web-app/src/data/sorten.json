@@ -1,9 +1,20 @@
-[{
-    "numericCode": "CH",
-    "flag": "CH",
-    "name": "CH",
-    "population": 100,
-    "region": "CH",
-    "capital": "CH",
-    "alpha3Code": "CH"
-  }]
+[
+  {
+  "numericCode": "CH",
+  "flag": "https://www.rebschule-meier.ch/sites/default/files/2018-09/amigne.jpg",
+  "name": "CH",
+  "population": 100,
+  "region": "Europe",
+  "capital": "CH",
+  "alpha3Code": "CH"
+},
+{
+  "numericCode": "CH",
+  "flag": "CH",
+  "name": "CH",
+  "population": 100,
+  "region": "CH",
+  "capital": "CH",
+  "alpha3Code": "CH"
+}
+]
