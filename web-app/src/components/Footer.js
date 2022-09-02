@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <div>
             <Paper className={classes.paper}>
-                <CopyrightIcon style={{ fontSize: 'small' }} /> Copyright 2021. Challenge by frontend Mentor. Coded by Maksuda Islam Lima.
+                <CopyrightIcon style={{ fontSize: 'small' }} /> Open Framing Hackdays 2022
 
 
             </Paper>
