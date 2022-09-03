@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/rest-grapes/static/js/main.bb28c811.chunk.js",
-    "main.js.map": "/rest-grapes/static/js/main.bb28c811.chunk.js.map",
-    "runtime-main.js": "/rest-grapes/static/js/runtime-main.548d2cf0.js",
-    "runtime-main.js.map": "/rest-grapes/static/js/runtime-main.548d2cf0.js.map",
-    "static/js/2.5013c658.chunk.js": "/rest-grapes/static/js/2.5013c658.chunk.js",
-    "static/js/2.5013c658.chunk.js.map": "/rest-grapes/static/js/2.5013c658.chunk.js.map",
-    "index.html": "/rest-grapes/index.html",
-    "static/js/2.5013c658.chunk.js.LICENSE.txt": "/rest-grapes/static/js/2.5013c658.chunk.js.LICENSE.txt"
+    "main.js": "/rapp/static/js/main.cb29c7fb.chunk.js",
+    "main.js.map": "/rapp/static/js/main.cb29c7fb.chunk.js.map",
+    "runtime-main.js": "/rapp/static/js/runtime-main.5d6954fd.js",
+    "runtime-main.js.map": "/rapp/static/js/runtime-main.5d6954fd.js.map",
+    "static/js/2.5013c658.chunk.js": "/rapp/static/js/2.5013c658.chunk.js",
+    "static/js/2.5013c658.chunk.js.map": "/rapp/static/js/2.5013c658.chunk.js.map",
+    "index.html": "/rapp/index.html",
+    "static/js/2.5013c658.chunk.js.LICENSE.txt": "/rapp/static/js/2.5013c658.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.548d2cf0.js",
+    "static/js/runtime-main.5d6954fd.js",
     "static/js/2.5013c658.chunk.js",
-    "static/js/main.bb28c811.chunk.js"
+    "static/js/main.cb29c7fb.chunk.js"
   ]
 }
