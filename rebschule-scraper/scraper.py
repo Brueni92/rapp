@@ -5,21 +5,25 @@ from bs4 import BeautifulSoup
 
 
 
-
-
+def scrape_desc(group):
+    desc = ''
+    for item in group.find_all('p'):
+        desc += item.text
+        desc += '\n'
+    return desc
 
 
 def scrape_grape(link):
     page = requests.get(link)
     soup = BeautifulSoup(page.content, 'html.parser')
     name = soup.find('h1').text
-    desc = soup.find('div', id='description').find('p').text
+    desc = scrape_desc(soup.find('div', id='description'))
     needs = soup.find(class_='needs').find_all(class_='field__item')
     color = needs[0].text
     wuchs = needs[1].text
     reifezeit = needs[2].text
     lageansprüche = needs[3].text
-    wine_desc = soup.find('div', id='wine').find('p').text
+    wine_desc = scrape_desc(soup.find('div', id='wine'))
     pilzresistenz = True if soup.find('ul', class_='characteristics').find_all('li')[1].find(class_='glyphicon-screenshot') else False
     image_url = soup.find('img', class_='img-responsive')['src']
     return {
@@ -27,7 +31,7 @@ def scrape_grape(link):
         'desc': desc,
         'wuchs': wuchs,
         'reifezeit': reifezeit,
-        'lageansprüche': lageansprüche,
+        'lageansprueche': lageansprüche,
         'color': color,
         'wine_desc': wine_desc,
         'pilzresistent': pilzresistenz,
@@ -54,5 +58,6 @@ for i in range(6):
     all_sorts += scrape_teaser_site(i)
 
 df = pd.DataFrame(all_sorts)
+df["id"] = df.index
 df.to_csv('output.csv')
-df.to_json('output.json')
+df.to_json('output.json', orient='records')
