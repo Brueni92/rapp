@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 230,
@@ -37,9 +38,10 @@ export default function Filter(props) {
 
   return (
     <div>
-      <Typography variant='h4'>Filter</Typography>
+      
+      <span style = {{fontSize: 20, display: "inline-block", overflow: "hidden", minWidth: 70}}>Lage: </span>
       <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel>Wetter Station</InputLabel>
+        <InputLabel>Nächste Wetter Station</InputLabel>
         <Select
           onChange={(event) => {
             const newFilterParameters = {
@@ -105,6 +107,9 @@ export default function Filter(props) {
         </Select>
       </FormControl>
 
+      <br></br>
+      <span style = {{fontSize: 20, display: "inline-block", overflow: "hidden", minWidth: 70}}>Boden: </span>
+
       <FormControl variant='outlined' className={classes.formControl}>
         <InputLabel>Bodenbeschaffenheit</InputLabel>
         <Select
@@ -148,6 +153,30 @@ export default function Filter(props) {
       </FormControl>
 
       <FormControl variant='outlined' className={classes.formControl}>
+        <InputLabel>Kalkhaltig</InputLabel>
+        <Select
+          onChange={(event) => {
+            const newFilterParameters = {
+              ...filterParameters,
+              kalkhaltig: event.target.value,
+            };
+            setFilterParameters(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
+          }}
+        >
+          <MenuItem value={''}>
+            <em>Alle</em>
+          </MenuItem>
+          <MenuItem value={0}>Flach</MenuItem>
+          <MenuItem value={1}>Mittel</MenuItem>
+          <MenuItem value={2}>Tief</MenuItem>
+        </Select>
+      </FormControl>
+
+      <br></br>
+      <span style = {{fontSize: 20, display: "inline-block", overflow: "hidden", minWidth: 70}}>Rebe: </span>
+
+      <FormControl variant='outlined' className={classes.formControl}>
         <InputLabel>Pilzresistenz</InputLabel>
         <Select
           onChange={(event) => {
@@ -184,26 +213,6 @@ export default function Filter(props) {
           </MenuItem>
           <MenuItem value={'Weiss'}>Weiss</MenuItem>
           <MenuItem value={'Blau'}>Blau</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel>Kalkhaltig</InputLabel>
-        <Select
-          onChange={(event) => {
-            const newFilterParameters = {
-              ...filterParameters,
-              kalkhaltig: event.target.value,
-            };
-            setFilterParameters(newFilterParameters);
-            props.updateFilterParamters(newFilterParameters);
-          }}
-        >
-          <MenuItem value={''}>
-            <em>Alle</em>
-          </MenuItem>
-          <MenuItem value={0}>Flach</MenuItem>
-          <MenuItem value={1}>Mittel</MenuItem>
-          <MenuItem value={2}>Tief</MenuItem>
         </Select>
       </FormControl>
     </div>
