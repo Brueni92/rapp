@@ -24,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const [grapes, setGrapes] = useState([]);
+  const [meteo, setMeteo] = useState({});
+  const [lage, setLage] = useState({});
+
+  const [filterParameters, setFilterParameters] = useState({});
+  const [searchTerm, setSearchTerm] = useState('');
+
   const [searchGrape, setsearchGrape] = useState([]);
   const [filterGrape, setfilterGrape] = useState([]);
   const fetchGrapeData = async () => {
@@ -31,6 +37,21 @@ function App() {
     setGrapes(grapes);
     setsearchGrape(grapes);
     setfilterGrape(grapes);
+  };
+  const fetchMeteoData = async () => {
+    const meteo = require('./data/meteo.json');
+    setMeteo(meteo);
+  };
+  const fetchLageData = async () => {
+    const lage = require('./data/lage.json');
+    setLage(lage);
+  };
+
+  const updateFilterParamters = (newParameters) => {
+    setFilterParameters(newParameters);
+  };
+  const updateSearchTerm = (newTerm) => {
+    setSearchTerm(newTerm);
   };
 
   const searchGrapes = (searchTerm) => {
@@ -41,23 +62,42 @@ function App() {
     setsearchGrape(search);
   };
 
-  const filterGrapes = (filterParameters) => {
+  const filterGrapes = () => {
     console.log(filterParameters);
+    console.log(searchTerm);
     var filter = [...grapes];
     filter = filter.filter((a) => a.color.includes(filterParameters.color));
-    setsearchGrape(filter);
+    var search = filter.filter((a) =>
+      a.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setsearchGrape(search);
   };
   useEffect(() => {
     fetchGrapeData();
+    fetchMeteoData();
+    fetchLageData();
+    setFilterParameters({
+      weatherStation: '',
+      kalkhaltig: -1,
+      color: '',
+      hangneigung: '',
+      ausrichtung: '',
+      bodenbeschaffenheit: -1,
+      bodentiefe: -1,
+      pilzresistenz: -1,
+    });
   }, []);
+  useEffect(() => {
+    filterGrapes();
+  }, [filterParameters, searchTerm]);
 
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Searchbar searchGrapes={searchGrapes} />
+      <Searchbar updateSearchTerm={updateSearchTerm} />
       <div className={classes.flex}>
-        <Filter filterGrapes={filterGrapes} />
+        <Filter updateFilterParamters={updateFilterParamters} />
       </div>
       <Grapes grapes={searchGrape} />
     </div>

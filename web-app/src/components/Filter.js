@@ -27,7 +27,7 @@ export default function Filter(props) {
       weatherStation: '',
       kalkhaltig: -1,
       color: '',
-      hangneigung: -1,
+      hangneigung: '',
       ausrichtung: '',
       bodenbeschaffenheit: -1,
       bodentiefe: -1,
@@ -47,7 +47,7 @@ export default function Filter(props) {
               weatherStation: String(event.target.value),
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
@@ -70,16 +70,16 @@ export default function Filter(props) {
               hangneigung: event.target.value,
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>0-15%</MenuItem>
-          <MenuItem value={1}>15-25%</MenuItem>
-          <MenuItem value={2}>25-35%</MenuItem>
-          <MenuItem value={3}>+35%</MenuItem>
+          <MenuItem value={'0-15'}>0-15%</MenuItem>
+          <MenuItem value={'15-25'}>15-25%</MenuItem>
+          <MenuItem value={'25-35'}>25-35%</MenuItem>
+          <MenuItem value={'35+'}>+35%</MenuItem>
         </Select>
       </FormControl>
 
@@ -92,16 +92,16 @@ export default function Filter(props) {
               ausrichtung: event.target.value,
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>West</MenuItem>
-          <MenuItem value={1}>Süd-West</MenuItem>
-          <MenuItem value={2}>Süden</MenuItem>
-          <MenuItem value={3}>Süd-Ost</MenuItem>
+          <MenuItem value={'W'}>West</MenuItem>
+          <MenuItem value={'SW'}>Süd-West</MenuItem>
+          <MenuItem value={'S'}>Süden</MenuItem>
+          <MenuItem value={'SE'}>Süd-Ost</MenuItem>
         </Select>
       </FormControl>
 
@@ -114,7 +114,7 @@ export default function Filter(props) {
               bodenbeschaffenheit: String(event.target.value),
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
@@ -135,7 +135,7 @@ export default function Filter(props) {
               bodentiefe: String(event.target.value),
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
@@ -156,7 +156,7 @@ export default function Filter(props) {
               pilzresistenz: String(event.target.value),
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
@@ -176,7 +176,7 @@ export default function Filter(props) {
               color: String(event.target.value),
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
@@ -195,7 +195,7 @@ export default function Filter(props) {
               kalkhaltig: event.target.value,
             };
             setFilterParameters(newFilterParameters);
-            props.filterGrapes(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
           }}
         >
           <MenuItem value={''}>
