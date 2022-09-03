@@ -93,7 +93,7 @@ function App() {
         <Filter updateFilterParamters={updateFilterParamters} />
       </div>
       <Grapes grapes={filteredGrapes} />
-      <Location/>
+      <Location meteo={meteo} filterParameters={filterParameters} lage={lage} />
     </div>
   );
 }

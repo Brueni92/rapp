@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
   },
   toprow: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 0,
-  }
+  },
 }));
 
 function Searchbar(props) {

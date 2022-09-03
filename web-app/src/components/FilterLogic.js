@@ -5,9 +5,6 @@ export default function FilterLogic(
   meteo,
   lage
 ) {
-  console.log(filterParameters);
-  console.log(searchTerm);
-
   var filteredGrapes = [...grapes];
   if (
     filterParameters.weatherStation &&

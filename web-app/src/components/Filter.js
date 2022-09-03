@@ -4,6 +4,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import InfoIcon from '@material-ui/icons/Info';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -44,7 +46,11 @@ export default function Filter(props) {
           minWidth: 70,
         }}
       >
-        Lage:{' '}
+        Lage
+        <Tooltip title='Bei der Lage wird einerseits berücksichtigt, wie viel Sonne die Rebe verträgt. Dazu werden auch historische Wetterdaten des Gebietes berücksichtigt.'>
+          <InfoIcon fontSize='small' />
+        </Tooltip>
+        :{' '}
       </span>
       <FormControl variant='outlined' className={classes.formControl}>
         <InputLabel>Nächste Wetter Station</InputLabel>
@@ -122,7 +128,11 @@ export default function Filter(props) {
           minWidth: 70,
         }}
       >
-        Boden:{' '}
+        Boden
+        <Tooltip title='Die Bodenbeschaffenheit ist wichtig, damit die Rebe gut gedeiht. Jede Sorte hat hier ihre eigenen Ansprücke.'>
+          <InfoIcon fontSize='small' />
+        </Tooltip>
+        :{' '}
       </span>
 
       <FormControl variant='outlined' className={classes.formControl}>
@@ -197,7 +207,11 @@ export default function Filter(props) {
           minWidth: 70,
         }}
       >
-        Rebe:{' '}
+        Rebe
+        <Tooltip title='Je nach Wunsch des Winzers kann hier noch weiter verfeinert werden.'>
+          <InfoIcon fontSize='small' />
+        </Tooltip>
+        :{' '}
       </span>
 
       <FormControl variant='outlined' className={classes.formControl}>
