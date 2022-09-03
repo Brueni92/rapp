@@ -60,7 +60,7 @@ export default function Root() {
           </Toolbar>
         </Paper>
 
-        <Router basename='/rest-grapes'>
+        <Router basename='/rapp'>
           <Switch>
             <Route path='/' exact component={App} />
             <Route path='/:alpha3Code' exact component={GrapeDetails} />
