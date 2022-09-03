@@ -6,9 +6,9 @@ import json
 STATIONS = {
 "Graenichen": 179,
 "Frick": 164,
-"Tegenfeld": 169,
+"Tegerfelden": 169,
 "Oberflachs": 167,
-"Birmensdorf": 191}
+"Birmenstorf": 191}
 
 YEARS = 13
 

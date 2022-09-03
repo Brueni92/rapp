@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchBar from 'material-ui-search-bar';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,12 +13,11 @@ const useStyles = makeStyles((theme) => ({
 function Searchbar(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root} variant='body1'>
-      <Typography variant='h5'>Suche:</Typography>
+    <div className={classes.root}>
       <SearchBar
-        placeholder='Search by Grape Name'
+        placeholder='Nach Rebsorten Suchen'
         onChange={(newValue) => {
-          props.searchGrapes(newValue);
+          props.updateSearchTerm(newValue);
         }}
       />
     </div>
