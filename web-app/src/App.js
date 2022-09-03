@@ -4,6 +4,7 @@ import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Searchbar from './components/Searchbar';
 import FilterLogic from './components/FilterLogic';
+import Location from './components/Location';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -92,6 +93,7 @@ function App() {
         <Filter updateFilterParamters={updateFilterParamters} />
       </div>
       <Grapes grapes={filteredGrapes} />
+      <Location/>
     </div>
   );
 }
