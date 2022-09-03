@@ -3,6 +3,7 @@ import Grapes from './components/Grapes';
 import Filter from './components/Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Searchbar from './components/Searchbar';
+import FilterLogic from './components/FilterLogic';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -30,13 +31,11 @@ function App() {
   const [filterParameters, setFilterParameters] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [searchGrape, setsearchGrape] = useState([]);
-  const [filterGrape, setfilterGrape] = useState([]);
+  const [filteredGrapes, setFilteredGrapes] = useState([]);
   const fetchGrapeData = async () => {
     const grapes = require('./data/sorten.json');
     setGrapes(grapes);
-    setsearchGrape(grapes);
-    setfilterGrape(grapes);
+    setFilteredGrapes(grapes);
   };
   const fetchMeteoData = async () => {
     const meteo = require('./data/meteo.json');
@@ -54,24 +53,17 @@ function App() {
     setSearchTerm(newTerm);
   };
 
-  const searchGrapes = (searchTerm) => {
-    var search = [...grapes];
-    search = search.filter((a) =>
-      a.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filterGrapes = () => {
+    const filteredGrapes = FilterLogic(
+      grapes,
+      filterParameters,
+      searchTerm,
+      meteo,
+      lage
     );
-    setsearchGrape(search);
+    setFilteredGrapes(filteredGrapes);
   };
 
-  const filterGrapes = () => {
-    console.log(filterParameters);
-    console.log(searchTerm);
-    var filter = [...grapes];
-    filter = filter.filter((a) => a.color.includes(filterParameters.color));
-    var search = filter.filter((a) =>
-      a.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setsearchGrape(search);
-  };
   useEffect(() => {
     fetchGrapeData();
     fetchMeteoData();
@@ -99,7 +91,7 @@ function App() {
       <div className={classes.flex}>
         <Filter updateFilterParamters={updateFilterParamters} />
       </div>
-      <Grapes grapes={searchGrape} />
+      <Grapes grapes={filteredGrapes} />
     </div>
   );
 }

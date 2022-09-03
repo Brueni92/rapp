@@ -55,9 +55,9 @@ export default function Filter(props) {
           </MenuItem>
           <MenuItem value={'Graenichen'}>Gränichen</MenuItem>
           <MenuItem value={'Frick'}>Frick</MenuItem>
-          <MenuItem value={'Tegenfeld'}>Tegenfeld</MenuItem>
+          <MenuItem value={'Tegerfelden'}>Tegerfelden</MenuItem>
           <MenuItem value={'Oberflachs'}>Oberflachs</MenuItem>
-          <MenuItem value={'Birmensdorf'}>Birmensdorf</MenuItem>
+          <MenuItem value={'Birmenstorf'}>Birmenstorf</MenuItem>
         </Select>
       </FormControl>
 
@@ -117,7 +117,7 @@ export default function Filter(props) {
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
           <MenuItem value={0}>Leicht</MenuItem>
@@ -138,7 +138,7 @@ export default function Filter(props) {
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
           <MenuItem value={0}>Flach</MenuItem>
@@ -153,17 +153,17 @@ export default function Filter(props) {
           onChange={(event) => {
             const newFilterParameters = {
               ...filterParameters,
-              pilzresistenz: String(event.target.value),
+              pilzresistenz: event.target.value === 'true' ? true : false,
             };
             setFilterParameters(newFilterParameters);
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>Nein</MenuItem>
-          <MenuItem value={1}>Ja</MenuItem>
+          <MenuItem value={'false'}>Nein</MenuItem>
+          <MenuItem value={'true'}>Ja</MenuItem>
         </Select>
       </FormControl>
 
@@ -198,12 +198,12 @@ export default function Filter(props) {
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>Flach</MenuItem>
+          <MenuItem value={0}>Wenig</MenuItem>
           <MenuItem value={1}>Mittel</MenuItem>
-          <MenuItem value={2}>Tief</MenuItem>
+          <MenuItem value={2}>Stark</MenuItem>
         </Select>
       </FormControl>
     </div>
