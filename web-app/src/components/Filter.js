@@ -37,9 +37,18 @@ export default function Filter(props) {
 
   return (
     <div>
-      <Typography variant='h4'>Filter</Typography>
+      <span
+        style={{
+          fontSize: 20,
+          display: 'inline-block',
+          overflow: 'hidden',
+          minWidth: 70,
+        }}
+      >
+        Lage:{' '}
+      </span>
       <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel>Wetter Station</InputLabel>
+        <InputLabel>Nächste Wetter Station</InputLabel>
         <Select
           onChange={(event) => {
             const newFilterParameters = {
@@ -105,6 +114,18 @@ export default function Filter(props) {
         </Select>
       </FormControl>
 
+      <br></br>
+      <span
+        style={{
+          fontSize: 20,
+          display: 'inline-block',
+          overflow: 'hidden',
+          minWidth: 70,
+        }}
+      >
+        Boden:{' '}
+      </span>
+
       <FormControl variant='outlined' className={classes.formControl}>
         <InputLabel>Bodenbeschaffenheit</InputLabel>
         <Select
@@ -148,12 +169,12 @@ export default function Filter(props) {
       </FormControl>
 
       <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel>Pilzresistenz</InputLabel>
+        <InputLabel>Kalkhaltig</InputLabel>
         <Select
           onChange={(event) => {
             const newFilterParameters = {
               ...filterParameters,
-              pilzresistenz: event.target.value === 'true' ? true : false,
+              kalkhaltig: event.target.value,
             };
             setFilterParameters(newFilterParameters);
             props.updateFilterParamters(newFilterParameters);
@@ -162,8 +183,41 @@ export default function Filter(props) {
           <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={'false'}>Nein</MenuItem>
-          <MenuItem value={'true'}>Ja</MenuItem>
+          <MenuItem value={0}>Flach</MenuItem>
+          <MenuItem value={1}>Mittel</MenuItem>
+          <MenuItem value={2}>Tief</MenuItem>
+        </Select>
+      </FormControl>
+
+      <br></br>
+      <span
+        style={{
+          fontSize: 20,
+          display: 'inline-block',
+          overflow: 'hidden',
+          minWidth: 70,
+        }}
+      >
+        Rebe:{' '}
+      </span>
+
+      <FormControl variant='outlined' className={classes.formControl}>
+        <InputLabel>Pilzresistenz</InputLabel>
+        <Select
+          onChange={(event) => {
+            const newFilterParameters = {
+              ...filterParameters,
+              pilzresistenz: String(event.target.value),
+            };
+            setFilterParameters(newFilterParameters);
+            props.updateFilterParamters(newFilterParameters);
+          }}
+        >
+          <MenuItem value={''}>
+            <em>Alle</em>
+          </MenuItem>
+          <MenuItem value={0}>Nein</MenuItem>
+          <MenuItem value={1}>Ja</MenuItem>
         </Select>
       </FormControl>
 
@@ -179,31 +233,11 @@ export default function Filter(props) {
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
           <MenuItem value={'Weiss'}>Weiss</MenuItem>
           <MenuItem value={'Blau'}>Blau</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl variant='outlined' className={classes.formControl}>
-        <InputLabel>Kalkhaltig</InputLabel>
-        <Select
-          onChange={(event) => {
-            const newFilterParameters = {
-              ...filterParameters,
-              kalkhaltig: event.target.value,
-            };
-            setFilterParameters(newFilterParameters);
-            props.updateFilterParamters(newFilterParameters);
-          }}
-        >
-          <MenuItem value={-1}>
-            <em>Alle</em>
-          </MenuItem>
-          <MenuItem value={0}>Wenig</MenuItem>
-          <MenuItem value={1}>Mittel</MenuItem>
-          <MenuItem value={2}>Stark</MenuItem>
         </Select>
       </FormControl>
     </div>
