@@ -201,8 +201,9 @@ export default function Filter(props) {
           <MenuItem value={''}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={1}>Ja</MenuItem>
-          <MenuItem value={0}>Nein</MenuItem>
+          <MenuItem value={0}>Flach</MenuItem>
+          <MenuItem value={1}>Mittel</MenuItem>
+          <MenuItem value={2}>Tief</MenuItem>
         </Select>
       </FormControl>
     </div>
