@@ -67,9 +67,12 @@ export default function FilterLogic(
     });
   }
 
-  filteredGrapes = filteredGrapes.filter((a) =>
-    a.color.includes(filterParameters.color)
-  );
+  if (filterParameters.color) {
+    filteredGrapes = filteredGrapes.filter((a) =>
+      a.color.includes(filterParameters.color)
+    );
+  }
+
   var filteredGrapes = filteredGrapes.filter((a) =>
     a.name.toLowerCase().includes(searchTerm.toLowerCase())
   );

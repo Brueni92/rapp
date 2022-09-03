@@ -4,7 +4,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -183,9 +182,9 @@ export default function Filter(props) {
           <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>Flach</MenuItem>
+          <MenuItem value={0}>Wenig</MenuItem>
           <MenuItem value={1}>Mittel</MenuItem>
-          <MenuItem value={2}>Tief</MenuItem>
+          <MenuItem value={2}>Stark</MenuItem>
         </Select>
       </FormControl>
 
@@ -207,17 +206,17 @@ export default function Filter(props) {
           onChange={(event) => {
             const newFilterParameters = {
               ...filterParameters,
-              pilzresistenz: String(event.target.value),
+              pilzresistenz: event.target.value === 'true' ? true : false,
             };
             setFilterParameters(newFilterParameters);
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={''}>
+          <MenuItem value={-1}>
             <em>Alle</em>
           </MenuItem>
-          <MenuItem value={0}>Nein</MenuItem>
-          <MenuItem value={1}>Ja</MenuItem>
+          <MenuItem value={'false'}>Nein</MenuItem>
+          <MenuItem value={'true'}>Ja</MenuItem>
         </Select>
       </FormControl>
 
@@ -233,7 +232,7 @@ export default function Filter(props) {
             props.updateFilterParamters(newFilterParameters);
           }}
         >
-          <MenuItem value={-1}>
+          <MenuItem value={''}>
             <em>Alle</em>
           </MenuItem>
           <MenuItem value={'Weiss'}>Weiss</MenuItem>
