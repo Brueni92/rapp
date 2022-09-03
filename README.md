@@ -1,11 +1,29 @@
-# rest-countries
-Here is the deployed link:
-https://kima063.github.io/rest-countries/
-<br>
-REST Countries API with color theme switcher
-------------------------------------------------------------
-A Frontend Mentor code challenge.
-<br>
-The challenge is to integrate with the REST Countries API to pull country data and display it like in the design. I choose React and Material-UI for doing this.
-<br>
-The Frontend Mentor challenge link: https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca
+# Webapp to find the best suitable grapes
+
+[https://brueni92.github.io/rapp/](https://brueni92.github.io/rapp/)
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run deploy`
+
+Deploys the app to github pages
